@@ -17,7 +17,5 @@ Finally, to start the dashboard run the command
 # Usage
 Click the `Add Topic` button to bring up the add topic dialog. Supply the topic you want to monitor and click the `Subscribe` button.
 
-![alt text](https://github.com/mbocaneg/MQTT-Monitor-Dash/blob/master/screenshots/Screen%20Shot%202020-07-13%20at%207.59.55%20PM.png)
-
 THIS IS A WORK IN PROGRESS
 
