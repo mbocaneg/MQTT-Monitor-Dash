@@ -5,8 +5,6 @@ A React based dashboard for monitoring MQTT topics in real time. Work in progres
 <br />
 ![alt text](https://github.com/mbocaneg/MQTT-Monitor-Dash/blob/master/screenshots/Screen%20Shot%202020-07-13%20at%207.58.37%20PM.png)
 <br />
-<br />
-<br />
 
 # Installation
 Make sure you have a working instance of the `mosquitto` broker in your network. In my case, `mosquitto` runs on a Raspberry Pi on my network, but installing it on your local machine is fine.
