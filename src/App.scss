@@ -1,0 +1,18 @@
+@import '../src/assets/base.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .topic-card, .add-card {
+    margin: 8px;
+  }
+}
+

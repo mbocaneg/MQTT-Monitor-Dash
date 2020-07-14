@@ -1,0 +1,72 @@
+@import '../../assets/base.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.add-popup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: $highlight-color;
+    font-weight: 100;
+  
+
+    .topic-input {
+        // margin-right: 16px;
+        margin-left: 16px;
+        font-size: 24px;
+        background-color: $main-color;
+    }
+    .submit-btn{
+        font-size: 24px;
+        margin-left: 24px;
+        color: $highlight-color;
+        font-weight: 100;
+    }
+}
+
+
+
+.add-card {
+    width: 256px;
+    height: 240px;
+
+    // box-shadow: 5px 5px 3px $shadow-color;
+
+    // padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $main-color;
+    font-weight: 100;
+    border-radius: 5%;
+
+    .add-text {
+        margin-top: 16px;
+        color: $highlight-color;
+        font-size: 16px;
+    }
+  
+}
+
+
+.add-icon:hover {
+    cursor:pointer;
+}
+.add-card:hover {
+    background-color: transparentize($highlight-color, 0.4);
+    
+    .add-text{
+        color: black;
+    }
+
+}
+
+
