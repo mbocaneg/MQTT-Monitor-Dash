@@ -11,12 +11,28 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
 
     background-color: $main-color;
     font-weight: 100;
     border-radius: 5%;
+
+    .window-btns {
+        display: flex;
+        flex-direction: row; 
+        justify-content: flex-end;
+        width: 256px;
+        margin-bottom: 32px;
+
+        .close, .settings {
+            margin-right: 16px;
+            margin-top: 16px; 
+        }
+        .close, .settings:hover {
+            cursor:pointer;
+        }
+    }
 
     .sensor-id {
         color: rgb(134, 129, 129);

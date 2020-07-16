@@ -1,10 +1,9 @@
-import React, { useState, Fragment, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AddTopic.scss'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
 const customStyles = {
@@ -49,10 +48,8 @@ const AddPopup = ({closeModal, addTopic}) => {
                 <input className="submit-btn" type="submit" value="Subscribe"/>
             </form>
         </div>
-
     );
 };
-
 
 const AddTopic = ({addTopic}) => {
 

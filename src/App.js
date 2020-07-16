@@ -1,5 +1,4 @@
-import React, { useState, Fragment, useEffect } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.scss';
 
 import Client from 'mqtt';
@@ -14,22 +13,32 @@ client.on('connect', () => {
 });
 
 function App() {
-
   const [topics, setTopics] = useState([]);
 
   const addTopic = (topic) => {
-    setTopics(topics => [...topics, <TopicCard sub={topic} client={client} />]);
+    setTopics(topics => [...topics, 
+      {
+        topic: topic, 
+
+        card: 
+        <TopicCard 
+          key={topic} 
+          topic={topic} 
+          client={client} 
+          removeTopic={removeTopic} /> 
+      } ]);
   };
 
-  useEffect(()=> {
-
-  }, []);
+  const removeTopic = (topicName) => {
+    console.log("removing: " + topicName);
+    setTopics(topics => topics.filter(item => item.topic !== topicName));
+  };
   
   return (
     <div className="App">
         <AddTopic addTopic={addTopic} />
         {topics.map((item, index) => 
-          item
+          item.card
         )}
     </div>
   );

@@ -1,27 +1,49 @@
-import React, { useState, Fragment, useEffect } from 'react';
-import './TopicCard.scss'
+import React, { useState, useEffect } from 'react';
+import './TopicCard.scss';
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWindowClose, faCog } from "@fortawesome/free-solid-svg-icons";
 
 
-export default function TopicCard({sub, client}) {
+export default function TopicCard({topic, client, removeTopic}) {
 
     const [data, setData] = useState({});
 
+    const closeCard = (e) => {
+        client.unsubscribe(topic);
+        removeTopic(topic);
+    }
+
     useEffect(() => {
-            client.subscribe(sub);
-            console.log("subscribing to " + sub);
-            client.on('message', function (topic, message, packet) {
-                if(topic === sub){
-                    let recv = JSON.parse(message.toString());
-                    setData(recv);
-                    console.log( recv);
+            let isMounted = true;
+
+            client.subscribe(topic);
+            console.log("subscribing to " + topic);
+            client.on('message', function (_topic, _message, _packet) {
+                if(_topic === topic){
+                    let recv = JSON.parse(_message.toString());
+                    if(isMounted){
+                        setData(recv);
+                        console.log( recv);
+                    }
                 }
             });
-    }, []);
+
+            return () => {
+                isMounted = false;
+                client.unsubscribe(topic);
+            }
+    }, [client, topic]);
 
     return (
         <div className="topic-card">
 
-            <p className="sensor-id">Topic: {sub}</p>
+            <div className="window-btns">
+                <FontAwesomeIcon className="settings" icon={faCog} />
+                <FontAwesomeIcon className="close" icon={faWindowClose} onClick={closeCard}/>
+            </div>
+
+            <p className="sensor-id">Topic: {topic}</p>
 
             <p className="sensor-name">{data.name}</p>
 
